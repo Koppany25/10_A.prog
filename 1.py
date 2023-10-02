@@ -1,4 +1,4 @@
-nemjo = True
+'''nemjo = True
 while nemjo:
     szam_str = input("adj meg egy számot: ")
     if szam_str.isdecimal():
@@ -53,7 +53,7 @@ print(lista_atlag(l3))
 
 print("---------------------------------")
 
-'''def szamok_beker():
+def szamok_beker():
     els = int(input("elso szam: "))
     mas = int(input("masodik szam: "))
     return(els,mas)
@@ -61,7 +61,7 @@ print("---------------------------------")
 msz = int(input("Menü számod: "))
 if msz == 1:
     els,mas = szamok_beker()
-    print(add(els,mas))'''
+    print(add(els,mas))
 
 print("---------------------------------")
 
@@ -105,3 +105,95 @@ print("---------------------------------")
 
 s1 = {}
 s = {"hetfo", "kedd"}
+
+print("---------------------------------")'''
+
+import random
+
+m = 4
+n = 7
+het = [[0]*n for j in range(m)]
+
+for i in range(m):
+    for j in range(n):
+        het[i][j] = random.randint(0, 9)
+        
+for x in het:
+    for y in x:
+        print(y, end = " ")
+    print("\n")
+
+print("---------------------------------")
+#összen mennyi eladás
+
+x = 0
+for i in range(m):
+    for j in range(n):
+        x = het[i][j] + x
+print(x)
+
+print("---------------------------------")
+#hetente mennyi eladás
+
+x = 0
+for j in range(n):
+        x = het[0][j] + x
+print(f"elso het ={x}")
+
+x = 0
+for j in range(n):
+        x = het[1][j] + x
+print(f"masodik het ={x}")
+
+x = 0
+for j in range(n):
+        x = het[2][j] + x
+print(f"harmadik het ={x}")
+
+x = 0
+for j in range(n):
+        x = het[3][j] + x
+print(f"utso het ={x}")
+
+print("---------------------------------")
+#legnagyobb eladással rendelkező hét
+
+print("maximális összegü hét:")
+maxx = 0
+max_sor = []
+
+for x in het:
+    summ = sum(x)
+    if summ > maxx:
+        maxx = summ
+        max_sor = x
+
+print(maxx)
+print(max_sor)
+
+print("---------------------------------")
+#eladás mentes napok száma
+
+db = 0
+for i in range(m):
+    for j in range(n):
+        if het[i][j] ==0:
+            db += 1
+print(db)
+
+print("---------------------------------")
+#legkissebb páratlan eladással rendelkező nap
+
+x = 0
+np = 0
+a = 40
+while np != 7:
+    for i in range(m):
+        x = het[i][np] + x
+        if x % 2 != 0:
+             if x > a:
+                a = x
+    np += 1
+print(a)
+
+
