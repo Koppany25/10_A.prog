@@ -46,14 +46,14 @@ lista = [["Béla", "f", "18:00"],
       ["Zoli", "f", "18:06"],]
 i = 0
 
-'''for i in range(len(lista)):
+for i in range(len(lista)):
     #print(lista[i])
     #for j in range(len(lista[i])):
         #print(lista[i][j])
     egysor = ""
     for j in range(len(lista[i])):
         egysor += lista[i][j] + " "
-    print(egysor)'''
+    print(egysor)
 
 while not(lista[i][1] == "n"):
     i = i + 1
