@@ -20,7 +20,9 @@ def str_int(sorok: list[str], elsosor: int=0, a_vegerol_ennyi_sor_nem_kell: int=
         szamok.append(int(sorok[i].strip()))
     return szamok
 
-def stringSzetszedoToIntList(szoveg: str, separator = " "):
-    egysor = szoveg[0].split(separator)
+def stringSzetszedoToIntList(szoveg: str, separator = " ", e_e_n_k = 0, v_e_n_k = 0, adat_szep = None):
+    egysor = szoveg.split(separator)
+    if adat_szep is not None:
+        egysor = egysor[e_e_n_k:len(egysor)-v_e_n_k][0].split(adat_szep)
     szamok = str_int(egysor)
     return szamok
