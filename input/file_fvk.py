@@ -1,28 +1,33 @@
-def beolvas(filename: str):
+#függvényként
+
+def beolvas(filename:str)-> list[str]:
     """
-    1.Egy filet megynit
-    2.Sorait beleteszi egy listába
-    3.Bezárja
+    Egy fájlt megnyit
+    sorait beleteszi egy listába
+    bezárja a fájlt
+    return lista
     """
     file = open(filename)
-    sorok = file.readlines()
+    sorok=file.readlines()
     file.close()
     return sorok
 
-def str_int(sorok: list[str], elsosor: int=0, a_vegerol_ennyi_sor_nem_kell: int=0):
+
+def strListToIntList(sorok:list[str], elsosor:int = 0, a_vegerol_ennyi_sor_nem_kell:int = 0)-> list[int]:
     """
-    1.Elem:
-        -leveszi a felesleget
-        -integerré alakít
+    1 elem: leveszi a felesleget
+    integerré alakítja
     """
     szamok = []
     for i in range(elsosor, len(sorok)-a_vegerol_ennyi_sor_nem_kell):
         szamok.append(int(sorok[i].strip()))
     return szamok
+    
 
-def stringSzetszedoToIntList(szoveg: str, separator = " ", e_e_n_k = 0, v_e_n_k = 0, adat_szep = None):
+
+def StringSzetszedoToIntLst(szoveg:str, separator = " ", elejerol_ennyi_nem_kell = 0, vegerol_ennyi_nem_kell = 0, adatseparator = None):
     egysor = szoveg.split(separator)
-    if adat_szep is not None:
-        egysor = egysor[e_e_n_k:len(egysor)-v_e_n_k][0].split(adat_szep)
-    szamok = str_int(egysor)
+    if adatseparator is not None:
+        egysor = egysor[elejerol_ennyi_nem_kell:len(egysor) - vegerol_ennyi_nem_kell][0].split(adatseparator)
+    szamok = strListToIntList(egysor)
     return szamok
